@@ -8,6 +8,7 @@ using namespace std;
 
 int menu();
 int menu2();
+int menu3();
 void printMatriz(Matriz*, int);
 void printMatrizPersonalizada(Matriz*, int, int);
 void liberarMatriz(Matriz*&, int);
@@ -16,9 +17,9 @@ void liberarMatriz(Matriz*&, int);
 int main(){
 	int tam = 5;
 	int alto = 0, ancho = 0;
-	int opc = 0, opc2 = 0;
+	int opc = 0, opc2 = 0, opc3 = 0;
 	int alto2 = 0, ancho2 = 0;
-	
+	int ultimo;
 	int numeromulti;
 	Matriz* matriz;
 	Matriz* matriz2;
@@ -107,16 +108,30 @@ int main(){
 				break;
 				
 			case 5:
-				for(int i=0; i<bitacora.size(); i++){
-					cout<<bitacora[i];
-					cout<<" = ";
-					//cout<<exito[i]<<endl;
-					if(exito[i]==true){
-						cout<<"exito"<<endl;
-					}
-					else{
-						cout<<"fallido"<<endl;
-					}
+				switch(opc3=menu3()){
+					case 1:
+						bitacora.erase(bitacora.begin()+bitacora.size());
+						exito.erase(exito.begin()+exito.size());
+						break;
+						
+					case 2:
+						bitacora.clear();
+						exito.clear();
+						break;
+						
+					case 3:
+						for(int i=0; i<bitacora.size(); i++){
+							cout<<bitacora[i];
+							cout<<" = ";
+							//cout<<exito[i]<<endl;
+							if(exito[i]==true){
+								cout<<"exito"<<endl;
+							}
+							else{
+								cout<<"fallido"<<endl;
+							}
+						}
+						break;
 				}
 				break;
 				
@@ -163,6 +178,26 @@ int menu2(){
 		cout<<"Ingrese una opcion: ";
 		cin>>opc;
 		if(opc>=1 && opc<=2){
+			return opc;
+		}
+		else{
+			cout<<"Opcion elegida no es valida"<<endl;
+		}
+	}
+	return 0;
+}
+
+int menu3(){
+	int opc=0;
+	while (true){
+		cout<<"MENU"<<endl
+			<<"1.-Eliminar ultimo"<<endl
+			<<"2.-Vaciar"<<endl
+			<<"3.-Imprimir"<<endl;
+			
+		cout<<"Ingrese una opcion: ";
+		cin>>opc;
+		if(opc>=1 && opc<=3){
 			return opc;
 		}
 		else{
