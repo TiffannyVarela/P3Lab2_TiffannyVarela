@@ -64,6 +64,7 @@ int main(){
 				else{
 					booleano = false;
 				}
+				matriz2->Liberar();
 				bitacora.push_back(operacion);
 				exito.push_back(booleano);
 				operacion="";
@@ -86,6 +87,7 @@ int main(){
 				else{
 					booleano = false;
 				}
+				matriz2->Liberar();
 				bitacora.push_back(operacion);
 				exito.push_back(booleano);
 				operacion="";
@@ -122,6 +124,7 @@ int main(){
 				cout<<"Saliendo"<<endl;
 				bitacora.clear();
 				exito.clear();
+				matriz->Liberar();
 				break;
 		}
 	}while(opc!=6);
@@ -169,20 +172,6 @@ int menu2(){
 	return 0;
 }
 
-
-void liberarMatriz(int**& matrix, int size){
-        for(int i=0;i<size;i++){
-                if (matrix[i]!=NULL){
-                         delete[]matrix[i];
-                        matrix[i]=NULL;
-                }
-        }
-
-        if(matrix!=NULL){
-                delete[] matrix;
-                matrix=NULL;
-        }
-}
 
 
 

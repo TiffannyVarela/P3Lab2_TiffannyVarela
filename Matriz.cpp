@@ -130,6 +130,7 @@ class Matriz{
 			else{
 				result=false;
 			}
+			
 			return result;
 		}
 		
@@ -158,6 +159,20 @@ class Matriz{
 				}
 			}
 			imprimirMatrizPersonalizada(matriz, alto, ancho);
+		}
+		
+		void Liberar(int**& matriz, int alto){
+			for(int i=0; i<alto; i++){
+				delete[] matriz[i];
+			}
+			delete[] matriz;
+		}
+		
+		void Liberar(){
+			for(int i=0; i<alto; i++){
+				delete[] matriz[i];
+			}
+			delete[] matriz;
 		}
 		
 		~Matriz(){
